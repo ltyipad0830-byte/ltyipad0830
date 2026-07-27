@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     const prompt = `
       22개정 교육과정에 맞춰 학생들이 "${subject}" 과목의 인강을 찾고 있습니다.
       메가스터디, 대성마이맥, EBS, 시대인재 등의 주요 사이트에 개설될 법한 해당 과목의 대표적인 인강 정보(사이트명, 강사명, 강의명, 특징)를 사이트별로 골고루 3~4개 정도 추천해 주세요.
-      결과는 반드시 아래의 JSON 배열 형식으로만 반환해 주세요. (마크다운 백틱 ```json 등은 제외하거나 표준 JSON으로 파싱 가능하게 작성)
+      결과는 반드시 아래의 JSON 배열 형식으로만 반환해 주세요. (마크다운 백틱 ```json 등은 제외)
       
       [
         {
@@ -30,7 +30,7 @@ export default async function handler(req, res) {
     `;
 
     const response = await ai.models.generateContent({
-      model: 'gemini-3.1-flash-lite',
+      model: 'gemini-2.5-flash',
       contents: prompt,
     });
 
